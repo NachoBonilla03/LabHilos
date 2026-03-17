@@ -33,7 +33,7 @@ class Paralel{
     }
 
     /**
-     * * Clase trabajadora que procesa un bloque especifico del arreglo.
+     * * Clase trabajadora que procesa una sección especifica del arreglo.
      * */
     public static class Worker implements Runnable {
         private final int[] datos;
@@ -66,7 +66,7 @@ class Paralel{
     }
 
     /**
-     * * Procesa el arreglo de forma sequential y calcula las estadísticas.
+     * * Procesa el arreglo de forma secuencial y calcula las estadísticas.
      * */
     public static Resultado procesarSecuencial(int[] datos) {
         Resultado res = new Resultado();
