@@ -1,0 +1,8 @@
+¿ Como funciona la solución paralelizada ?
+
+La versión paralelizada toma el conjunto de datos y una cantidad de hilos definida por el usuario, ya sea por parámetro o por una configuración fija. Si viene por parámetro, se parsea a un arreglo, donde cada valor representa una cantidad de hilos a probar, y el tamaño del arreglo indica cuántas ejecuciones se van a realizar.
+
+Luego, para cada cantidad de hilos, se divide el arreglo de datos en bloques iguales según esa cantidad. En un for, se crea un Worker por cada bloque, el cual implementa Runnable y se encarga de procesar su parte del arreglo calculando estadísticas parciales como suma, mínimo, máximo y total. Cada Worker se ejecuta en un hilo independiente, y el hilo principal espera a que todos terminen usando join(). Finalmente, se combinan los resultados parciales utilizando reducción al final, donde el hilo principal consolida toda la información para obtener el resultado global.
+
+Comparación entre la versión paralela y la versión secuencial.
+
