@@ -1,1 +1,1 @@
-# LabHilos
+# Laboratorio #2 - Hilos
