@@ -35,7 +35,7 @@ class Mavenproject2 {
     }
 
     /**
-     * Procesa el arreglo de forma secuencial y calcula las estadísticas.
+     * Procesa el arreglo de forma sequential y calcula las estadísticas.
      */
     public static Resultado procesar(int[] datos) {
         Resultado res = new Resultado();
@@ -72,7 +72,7 @@ class Mavenproject2 {
         // Generación de datos
         int[] datos = generarDatos(n, minValor, maxValor);
 
-        // Medición del tiempo de procesamiento secuencial
+        // Medición del tiempo de procesamiento sequential
         long inicio = System.nanoTime();
         Resultado r = procesar(datos);
         long fin = System.nanoTime();
