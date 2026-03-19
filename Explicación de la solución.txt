@@ -1,8 +1,21 @@
+Estudiantes: Ignacio Bonilla, Sebastian Alvarez,Anthony Li 
+
+
 ¿ Como funciona la solución paralelizada ?
 
-La versión paralelizada toma el conjunto de datos y una cantidad de hilos definida por el usuario, ya sea por parámetro o por una configuración fija. Si viene por parámetro, se parsea a un arreglo, donde cada valor representa una cantidad de hilos a probar, y el tamaño del arreglo indica cuántas ejecuciones se van a realizar.
+Al igual que la versión secuencial, el objetivo del codigo es procesar un arreglo de números enteros y calcular estadísticas 
+generales como la suma total, el promedio, el valor mínimo, el valor máximo y la cantidad total de elementos.
 
-Luego, para cada cantidad de hilos, se divide el arreglo de datos en bloques iguales según esa cantidad. En un for, se crea un Worker por cada bloque, el cual implementa Runnable y se encarga de procesar su parte del arreglo calculando estadísticas parciales como suma, mínimo, máximo y total. Cada Worker se ejecuta en un hilo independiente, y el hilo principal espera a que todos terminen usando join(). Finalmente, se combinan los resultados parciales utilizando reducción al final, donde el hilo principal consolida toda la información para obtener el resultado global.
+La diferencia principal es como distribuye el trabajo, ya que en lugar de ir por todo el arreglo con un único hilo, divide el 
+conjunto de datos en varios bloques aproximadamente iguales y asigna cada bloque a un hilo independiente, para asi aprovechar mejor los 
+recursos del procesador y que podamos reducir el tiempo total de ejecución. 
 
-Comparación entre la versión paralela y la versión secuencial.
+En las pruebas realizadas se usaron 2,4 y 8 hilos, para hacer la division de carga entre ellos y de esta manera cada hilo procese una parte 
+especifica de los datos sin interferir en el trabajo de los demás hilos. 
+
+El worker se encargar de procesar un bloque del arreglo original, por esto implementa la interfaz Runnable (permite que se ejecute dentro de un hilo
+independiente), una vez un worker procesa su segmento y genera las estadisticas "parciales" se hace un join en un hilo principal para esperar que cada 
+que recopile los resultados parciales y los une en un resultado global (se usa tecnica de reduccion final, osea que cada hilo calcula una parte 
+por separado y se combinan los resultados al finaliar el procesamiento en paralelo)
+
 

@@ -1,4 +1,19 @@
-La versión secuencial procesa todos los datos utilizando un solo hilo, recorriendo el arreglo completo de números uno por uno para calcular las funciones principales del programa (suma, el promedio, el mínimo y el máximo). 
-Esta solución es la más simple y fácil de entender, pero el rendimiento depende totalmente de un único "trabajador" ejecutando el código, por lo que puede tardar más cuando se ejecuta el código con grandes cantidades de datos. 
+Estudiantes: Ignacio Bonilla, Sebastian Alvarez,Anthony Li 
 
-En cambio, la versión paralela divide el arreglo en varias partes y asigna cada sección a diferentes hilos de ejecución que trabajan al mismo tiempo. Para realizar esto, se utiliza la clase Worker, que se encarga de procesar una parte específica del arreglo. Cada hilo ejecuta un objeto Worker, el cual calcula resultados parciales como la suma, el mínimo, el máximo y la cantidad de números en su segmento del arreglo. Al finalizar la ejecución de todos los hilos, estos resultados parciales se combinan para obtener el resultado total. Tomando esta solución, el procesamiento puede utilizar múltiples hilos para reducir el tiempo de ejecución. Sin embargo, esta solución introduce una mayor complejidad en el código debido a la creación, coordinación y sincronización de los hilos.
+
+Aunque ambas versiones resuelven el mismo problema y calculan los mismos valores sobre un arreglo de numeros, su diferencia radica en como 
+organgizan el trabajo a realizar y como aprovechan los recursos. 
+
+Secuencial: 
+Se realiza en un unico hilo, osea que se recorre el arreglo de inicio a fin en una unica ejecucion, que va actualizando una unica estructura
+de resultados. 
+Su ventaja es que es más simple a nivel de codigo, haciendolo más facil de leer, entender y depurar, porque no se preocupa por concurrencia,
+coordinar hilos o combinar resultados parciales. 
+En un volumen pequeño de datos puede ser una solución optima , pero entre mayor sea el tamaño del arreglo el tiempo de respuesta va a tender a la alza. 
+
+Paralela: 
+En esta version, se divide el arreglo en multiples secciones y cada una se asigna a un hilo distinto. De esta forma varios segmentos del arreglo
+se procesan en simultaneo, donde cada hilo calcula estadisticas parciales de su bloque y cuando finalizan, se combinan dentro de un hilo principal
+para asi obtener el valor final. 
+Al distribuir la carga de trabajo, va a tender a tener un mejor tiempo total de ejecucion, y va a tender a ser mayor la diferencia de tiempo
+con respecto a la version secuencial entre mayor sea la cantidad de datos a procesar. 

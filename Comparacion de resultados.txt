@@ -1,0 +1,36 @@
+Estudiantes: Ignacio Bonilla, Sebastian Alvarez,Anthony Li 
+
+
+En una primera ejecucion se obtuvieron los resultados 
+Generando 1000000 números aleatorios entre -1000000 y 1000000...
+
+=== RESULTADOS SECUENCIALES ===
+TotalNumeros    SumaTotal       Promedio     Minimo       Maximo       Tiempo(ms)
+1000000         -60213973       -60,214      -999997      999998       5,722       
+
+=== RESULTADOS PARALELOS ===
+Hilos   TotalNumeros    SumaTotal       Promedio     Minimo       Maximo       Tiempo(ms)   Speedup
+2       1000000         -60213973       -60,214      -999997      999998       9,804        0,584     
+4       1000000         -60213973       -60,214      -999997      999998       13,033       0,439     
+8       1000000         -60213973       -60,214      -999997      999998       1,351        4,237
+
+
+Segunda ejecución
+Generando 1000000 números aleatorios entre -1000000 y 1000000...
+
+=== RESULTADOS SECUENCIALES ===
+TotalNumeros    SumaTotal       Promedio     Minimo       Maximo       Tiempo(ms)  
+1000000         217640754       217,641      -1000000     999998       5,065       
+
+=== RESULTADOS PARALELOS ===
+Hilos   TotalNumeros    SumaTotal       Promedio     Minimo       Maximo       Tiempo(ms)   Speedup
+2       1000000         217640754       217,641      -1000000     999998       11,717       0,432     
+4       1000000         217640754       217,641      -1000000     999998       1,384        3,660
+8       1000000         217640754       217,641      -1000000     999998       1,363        3,718
+
+Los resultados obtenidos muestran que ambas versiones generan resultados correctos, pero difieren en rendimiento. 
+La versión secuencial mantuvo tiempos estables cercanos a los 5 ms, mientras que la versión paralela presentó comportamientos 
+distintos según la cantidad de hilos utilizada. Con 2 hilos, el rendimiento fue inferior al secuencial en ambas pruebas. 
+En cambio, con 4 y 8 hilos se observaron mejoras significativas, especialmente con 8 hilos, que obtuvo los mejores tiempos y 
+speedups en ambas ejecuciones. Esto demuestra que el paralelismo puede mejorar el desempeño del programa, pero su efectividad 
+depende de una configuración adecuada de la cantidad de hilos y de las condiciones del entorno de ejecución.
